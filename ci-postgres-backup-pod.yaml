@@ -9,16 +9,8 @@ spec:
   - name: postgres-backup
     image: gcr.io/xxx/postgres-backup:latest
     env:
-    - name: PG_HOST
-      value: "xx.xx.xx.xx"
-    - name: PG_PORT
-      value: 5432      
-    - name: PG_USER
-      value: "postgres"      
-    - name: PG_PASSWORD
-      value: "password"      
-    - name: PG_DBNAME
-      value: "dbName"
+    - name: PG
+      value: [{"host":"xx.xx.xx.xx","port":5432,"user":"postgres","password":"password","dbName":dbName"},{"host":"xx.xx.xx.xx","port":5432,"user":"postgres","password":"password","dbName":dbName"}]
     - name: BACKUP_DEST
     # Google cloud destination for backup files
       value: "gs://my-bucket"      
