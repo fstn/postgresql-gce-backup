@@ -21,7 +21,9 @@ spec:
       value: "dbName"
     - name: BACKUP_DEST
     # Google cloud destination for backup files
-      value: "gs://my-bucket"
+      value: "gs://my-bucket"      
+    - name: BACKUP_FOLDER
+      value: "dbName"
     - name: BACKUP_RETENTION_DAYS
     # Backup retention time in days
       value: 7     
