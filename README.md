@@ -8,11 +8,11 @@ PG_HOST= "xx.xx.xx.xx"
 PG_PORT=5432       
 PG_USER="postgres"      
 PG_PASSWORD="password"      
-PG_DBNAME="dbName"
+PG_DBNAME= Array of db name to backup
 
-- Google cloud destination for backup files  
+- Google cloud destination for backup files (will create a folder for each db to backup)  
 BACKUP_DEST="gs://my-bucket"   
-BACKUP_FOLDER="dbName"
+BACKUP_FOLDER="backup folder"
 
 - Backup retention time in days, the script must remove the olders backups  
 BACKUP_RETENTION_DAYS=7     
@@ -20,10 +20,10 @@ BACKUP_RETENTION_DAYS=7
 - Run backup based on this cron  
 BACKUP_CRON_EXPR="* 1 * * *"   
 
-- Send email on backup error with the error message and stacktrace inside the log    
+- Send email on backup error with the error message, the db name and stacktrace inside the log    
 EMAIL_TO_NOTIFY_ON_ERROR ="error@gmail.com"   
 
-- Send email on backup success with the link to the gce bucket backup file and the size of the file  
+- Send email on backup success with the links to the gce bucket backup files and the size of each file  
 EMAIL_TO_NOTIFY_ON_SUCCESS  ="success@gmail.com"  
       
 Will send compressed backups to Google cloud bucket
