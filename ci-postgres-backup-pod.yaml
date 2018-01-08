@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres-backup
+  labels:
+    purpose: postgres-backup
+spec:
+  containers:
+  - name: postgres-backup
+    image: gcr.io/xxx/postgres-backup:latest
+    env:
+    - name: PG_HOST
+      value: "xx.xx.xx.xx"
+    - name: PG_PORT
+      value: 5432      
+    - name: PG_USER
+      value: "postgres"      
+    - name: PG_PASSWORD
+      value: "password"      
+    - name: PG_DBNAME
+      value: "dbName"
+    - name: BACKUP_DEST
+    # Google cloud destination for backup files
+      value: "gs://my-bucket"
+    - name: BACKUP_RETENTION_DAYS
+    # Backup retention time in days
+      value: 7     
+    - name: BACKUP_CRON_EXPR
+    # Run backup based on this cron
+      value: "* 1 * * *"       
+    - name: EMAIL_TO_NOTIFY_ON_ERROR    
+    # Run backup based on error with the error message and stacktrace inside the log
+      value: "error@gmail.com"   
+    - name: EMAIL_TO_NOTIFY_ON_SUCCESS    
+    # Run backup based on error with the link to the gce bucket backup file and the size of the file
+      value: "success@gmail.com"  
