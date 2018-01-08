@@ -10,7 +10,7 @@ spec:
     image: gcr.io/xxx/postgres-backup:latest
     env:
     - name: PG
-      value: [{"host":"xx.xx.xx.xx","port":5432,"user":"postgres","password":"password","dbName":dbName"},{"host":"xx.xx.xx.xx","port":5432,"user":"postgres","password":"password","dbName":dbName"}]
+      value: [{"name":"backup1","host":"xx.xx.xx.xx","port":5432,"user":"postgres","password":"password","dbName":dbName"},{"name":"backup2","host":"xx.xx.xx.xx","port":5432,"user":"postgres","password":"password","dbName":dbName"}]
     - name: BACKUP_DEST
     # Google cloud destination for backup files
       value: "gs://my-bucket"      
