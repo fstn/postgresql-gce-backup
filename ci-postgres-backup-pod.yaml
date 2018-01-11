@@ -9,6 +9,8 @@ spec:
   - name: postgres-backup
     image: gcr.io/xxx/postgres-backup:latest
     env:
+    - name: SMTP_SERVER
+      value ?
     - name: PG
       value: [{"name":"backup1","host":"xx.xx.xx.xx","port":5432,"user":"postgres","password":"password","dbName":dbName"},{"name":"backup2","host":"xx.xx.xx.xx","port":5432,"user":"postgres","password":"password","dbName":dbName"}]
     - name: BACKUP_DEST
